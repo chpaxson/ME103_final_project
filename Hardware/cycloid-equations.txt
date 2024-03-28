@@ -1,0 +1,10 @@
+﻿"RotorRadius"= 25mm
+"Eccentricity"= 1.00mm
+"RollerRadius"= 1.5mm
+"GearRatio"= 20
+"RollerCount"="GearRatio" + 1
+"RotorThickness"= 5mm
+"OutputRollerRadius"= 2mm
+"OutputRollerCount"= 6
+"OutputRollerHoleCircleRadius"="RotorRadius"- 4 * "OutputRollerRadius"
+"RotorGap"= 0.5mm

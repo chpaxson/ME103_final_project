@@ -1,0 +1,1 @@
+https://grabcad.com/library/gy-bno055-1
