@@ -1,4 +1,4 @@
-﻿"RotorRadius"= 25mm
+﻿"RotorRadius"= 26mm
 "Eccentricity"= 1.00mm
 "RollerRadius"= 1.5mm
 "GearRatio"= 20
