@@ -3,7 +3,7 @@
 "RollerRadius"= 1.5mm
 "GearRatio"= 20
 "RollerCount"="GearRatio" + 1
-"RotorThickness"= 5mm
+"RotorThickness"= 6mm
 "OutputRollerRadius"= 2mm
 "OutputRollerCount"= 6
 "OutputRollerHoleCircleRadius"="RotorRadius"- 4 * "OutputRollerRadius"
