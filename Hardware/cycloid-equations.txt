@@ -1,7 +1,7 @@
 ﻿"RotorRadius"= 26mm
 "Eccentricity"= 1.00mm
 "RollerRadius"= 1.5mm
-"GearRatio"= 20
+"GearRatio"= 10
 "RollerCount"="GearRatio" + 1
 "RotorThickness"= 6mm
 "OutputRollerRadius"= 1.5mm
