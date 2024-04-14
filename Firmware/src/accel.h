@@ -8,7 +8,10 @@
 #include <Adafruit_BNO055.h>
 
 void setupAccel();
+void reset_gyro();
 
-double getAccel(int num);
+
+double get_accel(int num);
+double get_gyro(int num);
 
 #endif

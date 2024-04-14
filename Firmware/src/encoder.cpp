@@ -19,9 +19,9 @@ long get_encoder(int n) {
   }
 
   if(n == 0) {
-    Serial3.write('a');
-  } else if(n == 1) {
     Serial3.write('b');
+  } else if(n == 1) {
+    Serial3.write('a');
   } else {
     Serial3.write('c');
   }

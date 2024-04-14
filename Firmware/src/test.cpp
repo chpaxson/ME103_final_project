@@ -4,7 +4,7 @@
 #include "motor.h"
 
 const double pi = 3.141592;
-long printDelay = 200;
+long printDelay = 0;
 
 void runTest(double freq, int run_num) {
 
@@ -25,13 +25,13 @@ void runTest(double freq, int run_num) {
     while (curr_time < end_time) {
         curr_time = micros() - start_time;
 
-        double speed = 100 * sin((double)(fConst * curr_time) / 1000000);
+        double speed = 100 * cos((double)(fConst * curr_time) / 1000000);
 
         setMotorSpeed(speed);
 
         if (printCounter >= printDelay) {
-            // printVals(run_num, curr_time, get_encoder(0), get_encoder(1), getAccel(0), getAccel(1));
-            printVals(run_num, curr_time / 1000, 0, 0, 0, 0, speed);
+            printVals(run_num, curr_time, get_encoder(0), get_encoder(1), get_gyro(0), get_gyro(1), get_accel(0), get_accel(1), speed);
+            // printVals(run_num, curr_time / 1000, 0, 0, 0, 0, 0, 0, speed);
             printCounter = 0;
         }
         printCounter++;
@@ -40,19 +40,23 @@ void runTest(double freq, int run_num) {
 
 // return test time, seconds
 uint64_t determineSimTime(double freq) {
-    // if (freq < 0.02) {
-    //     return 270;
-    // } else if (freq < 0.05) {
-    //     return 150;
-    // } else if (freq < 0.1) {
-    //     return 90;
-    // } else {
+    if (freq < 0.3) {
         return 60;
-    // }
+    } else if (freq < 1) {
+        return 10;
+    } else {
+        return 5;
+    }
 }
 
-void printVals(int num, uint64_t time, long enc1, long enc2, double angle1, double angle2, double speed)
+void printVals(int num, uint64_t time, long enc1, long enc2, double angle1, double angle2, double accel1, double accel2, double speed)
 {
+
+    if (accel1 == 0 || accel2 == 0) {
+        // setMotorSpeed(0);
+        Serial.println("I2C failed");
+        while(1);
+    }
 
     Serial.print(num);
     Serial.print(", ");
@@ -65,6 +69,10 @@ void printVals(int num, uint64_t time, long enc1, long enc2, double angle1, doub
     Serial.print(angle1);
     Serial.print(", ");
     Serial.print(angle2);
+    Serial.print(", ");
+    Serial.print(accel1);
+    Serial.print(", ");
+    Serial.print(accel2);
     Serial.print(", ");
     Serial.print(speed);
     Serial.println("");
