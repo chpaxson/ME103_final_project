@@ -1,0 +1,14 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX1
+Size               4M
+Start Address      0x00000000
+End Address        0x003FFFFF
+Checksum           0x1E9A0A11
+Fill Value         0xFF
+
+Addr1         Addr2         Date                    File(s)                                                                                              Checksum
+0x00000000    0x0021728B    Apr 19 14:45:07 2024    /home/naichenzhao/Desktop/EECS106B_Proj/FPGA/EECS106B_QDEC/EECS106B_QDEC.runs/impl_1/fpga_top.bit    0x002B2385
+File Checksum Total                                                                                                                                      0x002B2385

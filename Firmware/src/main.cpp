@@ -8,11 +8,11 @@ void setup() {
 
   Serial.begin(230400);
   Serial.println("start");
-  setupAccel();
+  // setupAccel();
   setupMotor();
 
   setupEncoders();
-  resetEncoders();
+  // resetEncoders();
 
   
 }
@@ -27,14 +27,14 @@ void loop() {
 
   */
 
-  runTest(0.5179, 0);
+  runTest(10.0, 0);
 
   while(1){
     setMotorSpeed(0);
     delay(100);
   }
-  
 
+  setMotorSpeed(0);
   delay(1000);
 }
 

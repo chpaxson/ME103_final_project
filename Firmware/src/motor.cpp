@@ -24,10 +24,9 @@ void setupMotor() {
     Serial.println("Enabling closed loop control...");
     while (odrive.getState() != AXIS_STATE_CLOSED_LOOP_CONTROL)
     {
-        odrive.clearErrors();
-        odrive.setState(AXIS_STATE_CLOSED_LOOP_CONTROL);
-        odrive.setState(AXIS_STATE_CLOSED_LOOP_CONTROL);
-        delay(10);
+    odrive.clearErrors();
+    odrive.setState(AXIS_STATE_CLOSED_LOOP_CONTROL);
+    delay(10);
     }
 
     Serial.println("ODrive running!");

@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        HEX
+Interface          SMAPX8
+Size               4M
+Start Address      0x00000000
+End Address        0x003FFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x0021728B    Apr  7 02:34:42 2024    /home/naichenzhao/Desktop/EECS106B_Proj/FPGA/EECS106B_QDEC/EECS106B_QDEC.runs/impl_1/fpga_top.bit

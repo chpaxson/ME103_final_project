@@ -4,7 +4,7 @@
 #include "motor.h"
 
 const double pi = 3.141592;
-long printDelay = 0;
+long printDelay = 10;
 
 void runTest(double freq, int run_num) {
 
@@ -22,7 +22,8 @@ void runTest(double freq, int run_num) {
     Serial.print("end time:");
     Serial.println(end_time);
 
-    while (curr_time < end_time) {
+    // while (curr_time < end_time) {
+      while (true) {
         curr_time = micros() - start_time;
 
         double speed = 100 * cos((double)(fConst * curr_time) / 1000000);
@@ -30,7 +31,8 @@ void runTest(double freq, int run_num) {
         setMotorSpeed(speed);
 
         if (printCounter >= printDelay) {
-            printVals(run_num, curr_time, get_encoder(0), get_encoder(1), get_gyro(0), get_gyro(1), get_accel(0), get_accel(1), speed);
+            // printVals(run_num, curr_time, get_encoder(0), get_encoder(1), get_gyro(0), get_gyro(1), get_accel(0), get_accel(1), speed);
+            printVals(run_num, curr_time, get_encoder(0), get_encoder(1), 1, 1, 1, 1, speed);
             // printVals(run_num, curr_time / 1000, 0, 0, 0, 0, 0, 0, speed);
             printCounter = 0;
         }
