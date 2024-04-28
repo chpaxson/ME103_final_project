@@ -1,9 +1,9 @@
 % Get a list of all frequency folders within 'data_cleaned'
-freqFolders = dir('./data_cleaned');
+freqFolders = dir('../Data/Cleaned Data');
 isub = [freqFolders(:).isdir];
 freqNames = {freqFolders(isub).name}';
 freqNames = freqNames(~ismember(freqNames, {'.', '..', '.ipynb_checkpoints'}));
-figure;
+% figure;
 
 % Calculate the number of subplot rows and columns based on the number of folders
 number_folders = length(freqNames);
@@ -12,13 +12,14 @@ number_rows = ceil(number_folders / number_columns);
 
 % Loop through each frequency folder
 for i = 1:number_folders
-    FolderName = ['../data_cleaned/', freqNames{i}];
-    subplot(number_rows, number_columns, i);
-    hold on;
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}];
+    fig = figure(i);
+    % subplot(number_rows, number_columns, i);
+    % hold on;
     
     % Loop through each trial
     for j = 0:4
-        trial_Name = fullfile(FolderName, ['trial', num2str(j), '.csv']);
+        trialFileName = fullfile(FolderName, ['trial', num2str(j), '.csv']);
         if isfile(trialFileName)
             data = readtable(trialFileName);
             
@@ -44,8 +45,9 @@ for i = 1:number_folders
     xlabel('Time (s)');
     ylabel('Output Encoder');
     grid on;
-    hold off;
+    saveas(fig, strcat(freqNames{i}, '.png'))
+    % hold off;
 end
 
 % Adjust the layout and size of the figure window if necessary
-set(gcf, 'Position', get(0, 'Screensize'));
+% set(gcf, 'Position', get(0, 'Screensize'));

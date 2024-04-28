@@ -1,5 +1,5 @@
 %call to cleaned data files in the folders
-freqFolders = dir('./data_cleaned');
+freqFolders = dir('../Data/Cleaned Data/');
 isub = [freqFolders(:).isdir];
 freqNames = {freqFolders(isub).name}';
 freqNames(ismember(freqNames,{'.','..', '.ipynb_checkpoints'})) = [];
@@ -12,8 +12,6 @@ number_rows = ceil(number_folders / number_columns);
 
 %define preset frequency values
 %these values will be called through loop iterations 
-%frequency_values_hz = [0.1, 0.13, 0.19, 0.26, 0.37 ...
-    %0.51, 0.71, 10, 1, 1.39, 1.93, 2.68, 3.73, 5.17, 7.19];
 frequency_values_hz = [0.1, 0.13, 0.19, 0.26, 0.37, ...
     0.51, 0.71, 1, 1.39, 1.93, 2.68, 3.73, 5.17, 7.19, 10];
 %convert frequencies from hertz to rad/s using 2*pi*f
@@ -91,7 +89,7 @@ for i = 1:number_folders
     hold on;
 
     %call the data folder name
-    FolderName = ['./data_cleaned/', freqNames{i}]; 
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}]; 
     
     %set up trial data arrays
     x_all = [];
@@ -168,7 +166,7 @@ for i = 1:number_folders
     subplot(subplot_rows_input, subplot_columns_input, i);
     hold on;
 
-    FolderName = ['./data_cleaned/', freqNames{i}]; 
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}]; 
     
     x_all = [];
     y_all = [];
@@ -231,7 +229,7 @@ for i = 1:number_folders
     subplot(subplot_rows_input_velo, subplot_columns_input_velo, i);
     hold on;
  
-    FolderName = ['./data_cleaned/', freqNames{i}]; 
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}]; 
     
     x_all = [];
     y_all = [];
@@ -285,7 +283,7 @@ for i = 1:number_folders
     subplot(subplot_rows_input_gyro, subplot_columns_input_gyro, i);
     hold on;
  
-    FolderName = ['./data_cleaned/', freqNames{i}]; 
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}]; 
     
     x_all = [];
     y_all = [];
@@ -350,7 +348,7 @@ for i = 1:number_folders
     subplot(subplot_rows_output_gyro, subplot_columns_output_gyro, i);
     hold on;
  
-    FolderName = ['./data_cleaned/', freqNames{i}]; 
+    FolderName = ['../Data/Cleaned Data/', freqNames{i}]; 
     
     x_all = [];
     y_all = [];
@@ -473,6 +471,8 @@ set(figure_input_velo, 'Position', get(0, 'Screensize'));
 set(figure_input_gyro, 'Position', get(0, 'Screensize'));
 set(figure_output_gyro, 'Position', get(0, 'Screensize'));
 
-
-
-
+% Define error arrays
+amp_errors_output = zeros(number_folders, 1);
+amp_errors_input = zeros(number_folders, 1);
+phase_errors_output = zeros(number_folders, 1);
+phase_errors_input = zeros(number_folders, 1);

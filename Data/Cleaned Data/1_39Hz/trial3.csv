@@ -1,5 +1,4 @@
 test_number,time,input_encoder,output_encoder,input_gyro,output_gyro,inout_acceleration,output_acceleration,velocity_in
-0,32,-393216,-1,96.00,-8.56,10.78,2.05,100.00
 0,9917,2502,140,96.19,-8.56,10.78,3.65,99.63
 0,15622,4538,340,96.00,-8.56,12.83,3.65,99.07
 0,21533,6684,553,96.00,-8.69,12.83,8.13,98.24
